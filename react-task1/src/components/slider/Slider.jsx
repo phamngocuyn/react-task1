@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Slider.scss';
-import '@/apis/sliderApi'
+import imageApi from '@/apis/sliderApi'
 
 const Slider = () => {
   const [images, setImages] = useState([]);
