@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './page/home/Home'
 
-function MyComponent() {
-  const [count, setCount] = useState(0); // Sử dụng useState từ React
-
-  console.log("render")
-
+const App = () => {
   return (
     <div>
-      <p>Count: {count}</p>
-      <p>Phạm Ngọc uyn- phương ăn cứt trâu </p>
-      <button onClick={() => setCount(count + 2)}>Increase</button>
+      <BrowserRouter>
+         <Routes>
+           <Route path='/' element={<Home />} ></Route>
+          </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default MyComponent;
+export default App
