@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBannerContext } from '../../context/BannerContext';
+import { useBannerContext } from '../../../context/BannerContext';
 import './Banner.scss';
 
 const Banner = () => {

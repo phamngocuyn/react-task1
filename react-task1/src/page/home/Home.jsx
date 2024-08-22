@@ -1,7 +1,7 @@
 import Header from "@/components/header/Heder";
-import Banner from "@/components/banner/Banner";
+import Banner from "./banner/Banner";
 import "./Home.scss"
-import Slider from "../../components/slider/Slider";
+import Slider from "./slider/Slider";
 
 const Home = () => {
   return (
