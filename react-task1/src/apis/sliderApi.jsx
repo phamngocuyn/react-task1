@@ -6,7 +6,7 @@ const imageApi = {
         throw new Error('Error get img');
       }
       const data = await response.json();
-      const firstFiveImages = data.slice(0, 5).map(item => item.download_url);
+      const firstFiveImages = data.slice(0, 9).map(item => item.download_url);
       return firstFiveImages;
     } catch (error) {
       console.error('Error get images:', error);

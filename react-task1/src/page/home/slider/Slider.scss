@@ -1,6 +1,6 @@
 .container {
   margin: 50px auto;
-  height: 60vh;
+  height: 40vh;
   max-width: 1024px;
   overflow: hidden;
   position: relative;
@@ -16,7 +16,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 50px;
   color: #fff;
   cursor: pointer;
   z-index: 10;
@@ -28,60 +27,47 @@
 }
 
 .prev {
-  left: 10px;
+  left: 15px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: red;
+    left: 10px;
+  }
 }
 
 .next {
-  right: 10px;
+  right: 15px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: red;
+    right: 10px;
+  }
 }
 
 .img-wrap {
+  display: flex;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  gap: 10px;
+  transition: transform 0.5s ease;
 
   img {
-    width: 100%;
+    flex: 1;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 10px;
     transition: opacity 0.5s ease;
-  }
-}
-
-.list-img {
-  display: flex;
-  gap: 5px;
-  margin: 10px 0;
-}
-
-.list-img div {
-  cursor: pointer;
-  padding: 5px;
-  flex: 1;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-  &.active {
-    background-color: #dc5656;
-    transform: scale(1.05);
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+    max-width: calc(100% / 3 - 10px);
   }
 }
 
 .dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
+  justify-content: center;
+  margin-top: 15px;
   gap: 10px;
 }
 
@@ -98,3 +84,16 @@
     transform: scale(1.2);
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    height: 30vh;
+  }
+
+  .img-wrap {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+

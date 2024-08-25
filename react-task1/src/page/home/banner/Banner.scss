@@ -4,7 +4,11 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  height: 50vh;
+  height: 60vh;
+
+  @media (max-width: 768px) {
+    height: 40vh;
+  }
 
   .banner-bg {
     position: absolute;
@@ -18,7 +22,7 @@
   }
 
   .banner-content {
-    max-width: 1024px;
+    width: 1024px;
     position: relative;
     z-index: 1;
     transition: width 1s ease;
@@ -38,20 +42,29 @@
       position: absolute;
       right: 20px;
       bottom: 20px;
-      background-color: #333;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
+      border: none;
       z-index: 2;
+      background-color: #FFF;
       cursor: pointer;
+
+      img {
+        &:hover {
+          background-color: #4f5ba8;
+        }
+      }
+
+
     }
   }
 
   &.fixed {
     position: relative;
-    top: -58.4px;
+    top: -96px;
     left: 0;
     width: 100%;
-    margin-bottom: -58.4px;
+    margin-bottom: -96px;
   }
 
   &.position {

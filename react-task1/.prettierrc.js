@@ -1,31 +1,13 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'eslint-config-prettier',
-    'prettier'
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'prettier'],
-  rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'prettier/prettier': [
-      'warn',
-      {
-        arrowParens: 'always',
-        semi: false,
-        trailingComma: 'none',
-        tabWidth: 2,
-        endOfLine: 'auto',
-        useTabs: true,
-        singleQuote: true,
-        printWidth: 120,
-        jsxSingleQuote: true
-      }
-    ]
-  }
-}
+  printWidth: 120,
+  useTabs: false,
+  tabWidth: 2,
+  trailingComma: 'es5',
+  semi: true,
+  singleQuote: true,
+  bracketSpacing: true,
+  arrowParens: 'always',
+  jsxSingleQuote: false,
+  bracketSameLine: false,
+  endOfLine: 'auto',
+};
