@@ -1,0 +1,75 @@
+@import '../../../commons/variables/transition.scss';
+
+.banner {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+
+  @media (max-width: 768px) {
+    height: 40vh;
+  }
+
+  .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    z-index: -1;
+  }
+
+  .banner-content {
+    width: 1024px;
+    position: relative;
+    z-index: 1;
+    transition: width $transition-one;
+    overflow: hidden;
+
+    &.expanded {
+      width: 100%;
+      max-width: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .isFullScreenBanner {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 30px;
+      height: 30px;
+      border: none;
+      z-index: 2;
+      background-color: #FFF;
+      cursor: pointer;
+
+      img {
+        &:hover {
+          background-color: #4f5ba8;
+        }
+      }
+
+
+    }
+  }
+
+  &.fixed {
+    position: relative;
+    top: -96px;
+    left: 0;
+    width: 100%;
+    margin-bottom: -96px;
+  }
+
+  &.position {
+    position: relative;
+  }
+}
