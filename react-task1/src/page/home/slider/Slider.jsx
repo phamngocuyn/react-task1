@@ -3,6 +3,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './Slider.scss';
 import imageApi from '@/apis/sliderApi';
+import { NUMBER_SLIDE_MOBILE, NUMBER_SLIDE_PC } from '@/constants/constants';
 
 const Slider = () => {
   const [images, setImages] = useState([]);
@@ -10,7 +11,7 @@ const Slider = () => {
   const [intervalId, setIntervalId] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const imagesPerSlide = isMobile ? 1 : 3;
+  const imagesPerSlide = isMobile ? NUMBER_SLIDE_MOBILE : NUMBER_SLIDE_PC;
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -64,13 +65,19 @@ const Slider = () => {
 
   const slidesCount = Math.ceil(images.length / imagesPerSlide);
 
+  const controlPrevClassName = 'control prev';
+  const controlNextClassName = 'control next';
+
+  const activeDotIndex = Math.floor(currentIndex / imagesPerSlide);
+  const dotClassName = (index) => `dot ${index === activeDotIndex ? 'active' : ''}`;
+
   return (
     <div className="container slider1">
       <div className="main">
-        <span className="control prev" onClick={() => moveSlide('prev')}>
+        <span className={controlPrevClassName} onClick={() => moveSlide('prev')}>
           <ChevronLeftIcon fontSize="large" />
         </span>
-        <span className="control next" onClick={() => moveSlide('next')}>
+        <span className={controlNextClassName} onClick={() => moveSlide('next')}>
           <ChevronRightIcon fontSize="large" />
         </span>
         <div className="img-wrap">
@@ -84,7 +91,7 @@ const Slider = () => {
           {Array.from({ length: slidesCount }).map((_, index) => (
             <span
               key={index}
-              className={`dot ${index === Math.floor(currentIndex / imagesPerSlide) ? 'active' : ''}`}
+              className={dotClassName(index)}
               onClick={() => setCurrent(index * imagesPerSlide)}
             ></span>
           ))}

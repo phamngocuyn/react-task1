@@ -3,11 +3,11 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const BannerContext = createContext();
 
 export const BannerProvider = ({ children }) => {
-  const [screen, setScreen] = useState(false);
+  const [isFullScreenBanner, setIsFullScreenBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleScreen = () => {
-    setScreen((prev) => !prev);
+  const toggleFullScreenBanner = () => {
+    setIsFullScreenBanner((prev) => !prev);
   };
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const BannerProvider = ({ children }) => {
   }, []);
 
   return (
-    <BannerContext.Provider value={{ screen, toggleScreen, isScrolled }}>
+    <BannerContext.Provider value={{ isFullScreenBanner, toggleFullScreenBanner, isScrolled }}>
       {children}
     </BannerContext.Provider>
   );

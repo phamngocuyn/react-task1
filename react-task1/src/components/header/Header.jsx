@@ -5,7 +5,7 @@ import './Header.scss';
 import LoadingSpinner from '../loader/LoadingSpinner';
 
 const Header = () => {
-  const { screen, isScrolled } = useBannerContext();
+  const { isFullScreenBanner, isScrolled } = useBannerContext();
   const [imgError, setImgError] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState("");
@@ -34,8 +34,10 @@ const Header = () => {
     setMenuOpen(prev => !prev);
   };
 
+  const headerClassName = `header ${isFullScreenBanner ? 'fixed' : ''} ${isScrolled && isFullScreenBanner ? 'scrolled' : ''}`
+
   return (
-    <header className={`header ${screen ? 'fixed' : ''} ${isScrolled && screen ? 'scrolled' : ''}`}>
+    <header className={headerClassName}>
       <div className="logo">
         {loading ? (
           <LoadingSpinner />
@@ -56,7 +58,7 @@ const Header = () => {
           <li>Article</li>
         </ul>
       </div>
-      <div className="auth-buttons">
+      <div className="auth-group-button">
         <button className="btn-login">Login</button>
         <button className="btn-register">Register</button>
       </div>
@@ -74,7 +76,7 @@ const Header = () => {
                 <li>Article</li>
               </ul>
             </div>
-            <div className="auth-buttons-modal">
+            <div className="auth-buttons-container">
               <button className="btn-login">Login</button>
               <button className="btn-register">Register</button>
             </div>

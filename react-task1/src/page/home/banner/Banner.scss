@@ -1,3 +1,5 @@
+@import '../../../commons/variables/transition.scss';
+
 .banner {
   position: relative;
   margin: 0 auto;
@@ -25,7 +27,7 @@
     width: 1024px;
     position: relative;
     z-index: 1;
-    transition: width 1s ease;
+    transition: width $transition-one;
     overflow: hidden;
 
     &.expanded {
@@ -38,7 +40,7 @@
       height: 100%;
     }
 
-    .screen {
+    .isFullScreenBanner {
       position: absolute;
       right: 20px;
       bottom: 20px;
