@@ -1,4 +1,4 @@
-import Header from "@/components/header/Heder";
+import { BannerProvider } from "../../context/BannerContext";
 import Banner from "./banner/Banner";
 import "./Home.scss"
 import Slider from "./slider/Slider";
@@ -6,9 +6,10 @@ import Slider from "./slider/Slider";
 const Home = () => {
   return (
     <>
-        <Header />
+      <BannerProvider>
         <Banner />
         <Slider />
+      </BannerProvider>
     </>
   );
 }
